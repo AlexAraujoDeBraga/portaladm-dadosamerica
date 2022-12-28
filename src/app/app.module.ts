@@ -4,6 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginModule } from './features/login/login.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -12,7 +16,9 @@ import { LoginModule } from './features/login/login.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    LoginModule
+    LoginModule,
+    FontAwesomeModule,
+    TooltipModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
