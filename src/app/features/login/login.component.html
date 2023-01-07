@@ -9,18 +9,18 @@
     </div>
   </div>
   <div class="row justify-content-md-center div-style">
-    <form class="col-lg-4 form-style">
+    <form class="col-lg-4 form-style" #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
       <div class="row justify-content-md-center">
         <div class="col-lg-10 mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Email</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" [(ngModel)]="user.email" class="form-control" name="email" id="email" placeholder="name@example.com">
         </div>
       </div>
       <div class="row justify-content-md-center">
         <div class="col-lg-10 mb-3">
-          <label for="inputPassword" class="col-sm-2 col-form-label">Senha</label>
+          <label for="password" class="col-sm-2 col-form-label">Senha</label>
           <div class="col-sm-12">
-            <input type="password" class="form-control" id="inputPassword">
+            <input type="password" [(ngModel)]="user.password" class="form-control" id="password" name="password">
           </div>
         </div>
       </div>
