@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginRoutingModule } from './login-routing.module';
-import { LoginComponent } from './login.component';
+import { HomeAdminComponent } from './home.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminSharedModule } from 'src/app/shared/components/admin/admin-shared.module';
 
 @NgModule({
   declarations: [
-    LoginComponent,
+    HomeAdminComponent,
   ],
   exports: [
-    LoginComponent
+    HomeAdminComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     HttpClientModule,
-    LoginRoutingModule,
-    FormsModule
+    FormsModule,
+    AdminSharedModule
   ]
 })
-export class LoginModule { }
+export class HomeAdminModule { }

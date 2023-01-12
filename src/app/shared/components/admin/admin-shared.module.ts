@@ -1,24 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginRoutingModule } from './login-routing.module';
-import { LoginComponent } from './login.component';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
 
 @NgModule({
   declarations: [
-    LoginComponent,
+    AdminHeaderComponent,
+    SidebarMenuComponent
   ],
   exports: [
-    LoginComponent
+    AdminHeaderComponent,
+    SidebarMenuComponent
   ],
   imports: [
     BrowserModule,
     CommonModule,
     HttpClientModule,
-    LoginRoutingModule,
     FormsModule
   ]
 })
-export class LoginModule { }
+export class AdminSharedModule { }

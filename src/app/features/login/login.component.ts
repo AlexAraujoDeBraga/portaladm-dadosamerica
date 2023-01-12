@@ -5,6 +5,7 @@ import { User } from 'src/app/shared/model/user';
 import { NgForm } from '@angular/forms';
 import { LoginAdminService } from 'src/app/core/services/login-admin.service';
 import { isNull } from '@angular/compiler/src/output/output_ast';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent implements OnInit {
   email = new FormControl('', [Validators.required, Validators.email]);
   hide = true;
 
-  constructor(private loginService: LoginAdminService) { }
+  constructor(private loginService: LoginAdminService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -32,6 +33,7 @@ export class LoginComponent implements OnInit {
         alert("You haven´t permission for access");
       } else {
         alert("Login Sucesso");
+        this.router.navigateByUrl('/admin-home-page');
       }
 
     }, error => alert("You haven´t permission for access"));
