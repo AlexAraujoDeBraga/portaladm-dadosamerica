@@ -1,1 +1,41 @@
-<p>admin-header works!</p>
+<nav class="navbar navbar-expand navbar-light bg-white topbar static-top shadow">
+    <div class="btn-group" dropdown>
+        <div id="button-basic" dropdownToggle class="btn btn-primary dropdown-toggle"
+                aria-controls="dropdown-basic">
+            <span class="mr-2 d-none d-lg-inline text-gray-600 small">Nome usuário</span>
+            <img class="img-profile rounded-circle" src="../../../../../assets/img/robot.svg">
+        </div>
+        <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu"
+            role="menu" aria-labelledby="button-basic">
+          <li role="menuitem"><a class="dropdown-item" href="#">Perfil</a></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Alterar senha</a></li>
+          <li class="divider dropdown-divider"></li>
+          <li role="menuitem"><a class="dropdown-item" href="#">Logout</a>
+          </li>
+        </ul>
+    </div>
+<!--
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Nome usuário</span>
+                <img class="img-profile rounded-circle" src="../../../../../assets/img/robot.svg">
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Perfil
+                </a>
+                <a class="dropdown-item" href="#">
+                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Opções
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Logout
+                </a>
+            </div>
+        </li>
+    -->
+</nav>
