@@ -7,15 +7,28 @@ import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { SidebarMenuComponent } from './sidebar-menu/sidebar-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { ListarNoticiaComponent } from './noticia/listar-noticia/listar-noticia.component';
+import { UpdateNoticiaComponent } from './noticia/update-noticia/update-noticia.component';
+import { CreateNoticiaComponent } from './noticia/create-noticia/create-noticia.component';
+import { DeleteNoticiaComponent } from './noticia/delete-noticia/delete-noticia.component';
 
 @NgModule({
   declarations: [
     AdminHeaderComponent,
-    SidebarMenuComponent
+    SidebarMenuComponent,
+    ListarNoticiaComponent,
+    UpdateNoticiaComponent,
+    CreateNoticiaComponent,
+    DeleteNoticiaComponent
   ],
   exports: [
     AdminHeaderComponent,
-    SidebarMenuComponent
+    SidebarMenuComponent,
+    ListarNoticiaComponent,
+    UpdateNoticiaComponent,
+    CreateNoticiaComponent,
+    DeleteNoticiaComponent
   ],
   imports: [
     BrowserModule,
@@ -23,6 +36,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
+    ButtonsModule,
     BsDropdownModule.forRoot()
   ]
 })
