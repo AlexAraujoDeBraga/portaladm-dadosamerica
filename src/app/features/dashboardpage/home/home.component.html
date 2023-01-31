@@ -1,10 +1,10 @@
 <div id="wrapper">
-    <app-sidebar-menu></app-sidebar-menu>
+    <app-sidebar-menu (newItemEvent)="getClickNoticia($event)"></app-sidebar-menu>
     <div id="content">
         <app-admin-header></app-admin-header>
         <div id="welcome">
-            <!-- <h3>Bem vindo ao portal administrativo nomeUsuario. <br> Selecione uma das opções do menu ao lado.</h3> -->
-            <app-listar-noticia></app-listar-noticia>
+            <h3 *ngIf="!showNoticiaOption">Bem vindo ao portal administrativo {{usuario?.email}}. <br> Selecione uma das opções do menu ao lado.</h3>
+            <app-listar-noticia *ngIf="showNoticiaOption"></app-listar-noticia>
         </div>
     </div>
 </div>

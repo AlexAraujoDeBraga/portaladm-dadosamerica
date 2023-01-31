@@ -27,12 +27,13 @@ export class LoginComponent implements OnInit {
     console.log(f.value);  
     console.log(f.valid);
 
-    this.loginService.loginUser(this.user).subscribe(data => {
+    this.loginService.loginUser(this.user).subscribe((data: User) => {
       
       if (data == null) {
         alert("You haven´t permission for access");
       } else {
         alert("Login Sucesso");
+        this.user = data;
         this.router.navigateByUrl('/admin-home-page');
       }
 

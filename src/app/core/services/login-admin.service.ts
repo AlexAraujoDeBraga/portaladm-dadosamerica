@@ -10,12 +10,16 @@ import { User } from 'src/app/shared/model/user';
 
 export class LoginAdminService {
   private baseUrl="http://localhost:8080/api/login"
-  
+  usuario?: User;
   constructor(private http: HttpClient) { }
 
-  loginUser(user: User):Observable<object>  {
-    console.log(user);
-    return this.http.post(`${this.baseUrl}`, user);
+  loginUser(user: User):Observable<User>  {
+    this.usuario = user;
+    return this.http.post<User>(`${this.baseUrl}`, user);
+  }
+
+  getUser() {
+    return this.usuario;
   }
 
   // configUrl = 'assets/config.json';

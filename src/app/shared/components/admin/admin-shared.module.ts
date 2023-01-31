@@ -12,6 +12,7 @@ import { ListarNoticiaComponent } from './noticia/listar-noticia/listar-noticia.
 import { UpdateNoticiaComponent } from './noticia/update-noticia/update-noticia.component';
 import { CreateNoticiaComponent } from './noticia/create-noticia/create-noticia.component';
 import { DeleteNoticiaComponent } from './noticia/delete-noticia/delete-noticia.component';
+import { ModalSharedModule } from '../../modal/modal-shared.module';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { DeleteNoticiaComponent } from './noticia/delete-noticia/delete-noticia.
   imports: [
     BrowserModule,
     CommonModule,
+    ModalSharedModule,
     HttpClientModule,
     FormsModule,
     BrowserAnimationsModule,
