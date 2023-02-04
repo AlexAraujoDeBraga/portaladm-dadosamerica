@@ -14,6 +14,7 @@ import { CreateNoticiaComponent } from './noticia/create-noticia/create-noticia.
 import { DeleteNoticiaComponent } from './noticia/delete-noticia/delete-noticia.component';
 import { ModalSharedModule } from '../../modal/modal-shared.module';
 
+
 @NgModule({
   declarations: [
     AdminHeaderComponent,

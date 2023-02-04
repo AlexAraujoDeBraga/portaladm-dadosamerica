@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { rendererTypeName } from '@angular/compiler';
+import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { TemplateRef } from '@angular/core';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { NewsService } from 'src/app/core/services/news.service';
+import { INews } from '../../model/news';
 
 @Component({
   selector: 'app-update-noticia-modal',
@@ -6,10 +11,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./update-noticia-modal.component.sass']
 })
 export class UpdateNoticiaModalComponent implements OnInit {
-
-  constructor() { }
-
+  @Input() noticia?: INews;
+  @ViewChild("inputResumo") inputResumo!: ElementRef;
+  
+  modalRef?: BsModalRef | null;
+  modalRef2?: BsModalRef;
+  constructor(private modalService: BsModalService) {}
+  
   ngOnInit(): void {
+    this.inputResumo.nativeElement.value = "oi";
   }
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { id: 1, class: 'modal-lg' });
+  }
+  openModal2(template: TemplateRef<any>) {
+    this.modalRef2 = this.modalService.show(template, {id: 2, class: 'second' });
+  }
+  closeFirstModal() {
+    if (!this.modalRef) {
+      return;
+    }
+ 
+    this.modalRef.hide();
+    this.modalRef = null;
+  }
+  closeModal(modalId?: number){
+    this.modalService.hide(modalId);
+  }
+
+  
+  
 
 }

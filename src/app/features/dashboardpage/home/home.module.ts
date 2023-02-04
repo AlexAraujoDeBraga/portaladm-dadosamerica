@@ -5,7 +5,6 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminSharedModule } from 'src/app/shared/components/admin/admin-shared.module';
-import { ModalSharedModule } from 'src/app/shared/modal/modal-shared.module';
 
 @NgModule({
   declarations: [
@@ -19,8 +18,7 @@ import { ModalSharedModule } from 'src/app/shared/modal/modal-shared.module';
     CommonModule,
     HttpClientModule,
     FormsModule,
-    AdminSharedModule,
-    ModalSharedModule
+    AdminSharedModule
   ]
 })
 export class HomeAdminModule { }

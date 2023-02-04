@@ -9,6 +9,9 @@ import { TypeaheadModule } from 'ngx-bootstrap/typeahead';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeAdminModule } from './features/dashboardpage/home/home.module';
+import { LoginAdminService } from './core/services/login-admin.service';
+import { AuthGuard } from './core/guards/auth-guard';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -20,9 +23,10 @@ import { HomeAdminModule } from './features/dashboardpage/home/home.module';
     LoginModule,
     HttpClientModule,
     HomeAdminModule,
-    TooltipModule.forRoot()
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [LoginAdminService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

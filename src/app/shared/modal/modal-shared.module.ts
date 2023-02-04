@@ -8,6 +8,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { DeleteNoticiaModalComponent } from './delete-noticia-modal/delete-noticia-modal.component';
 import { UpdateNoticiaModalComponent } from './update-noticia-modal/update-noticia-modal.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { UpdateNoticiaModalComponent } from './update-noticia-modal/update-notic
     FormsModule,
     BrowserAnimationsModule,
     ButtonsModule,
+    ModalModule,
     BsDropdownModule.forRoot()
   ]
 })

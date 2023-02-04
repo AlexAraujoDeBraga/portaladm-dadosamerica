@@ -1,1 +1,79 @@
-<p>update-noticia works!</p>
+
+  <div class="modal-header">
+      <h4 class="modal-title pull-left"></h4>
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+  </div>
+  <div class="modal-body">
+    <form>
+        <div class="form-row align-items-center">
+            <div class="col-auto my-1">
+              <label class="mr-sm-2">Título: </label>
+              <br>
+              <input type="email" class="form-control" name="email" id="email" value="{{noticia?.titulo}}">
+            </div>
+            <div class="col-auto my-1">
+                <label class="mr-sm-2">URL da imagem: </label>
+                <br>
+                <input type="email" class="form-control" name="email" id="email" value="{{noticia?.urlImg}}">
+            </div>
+            <div class="col-auto my-1">
+              <label for="exampleFormControlTextarea1">Resumo: </label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
+                  {{noticia?.resumo}}
+              </textarea>
+            </div>
+            <div class="col-auto my-1">
+                <label for="exampleFormControlTextarea1">Texto: </label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">
+                    {{noticia?.texto}}
+                </textarea>
+            </div>
+            data
+            <div class="col-auto my-1">
+                <label class="mr-sm-2">Fonte: </label>
+                <br>
+                <input type="email" class="form-control" name="email" id="email" value="{{noticia?.fonte}}">
+            </div>
+            <div class="col-auto my-1">
+                <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria: </label>
+                <br>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Selecione...</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+            </div>
+            <div class="col-auto my-1">
+                <label class="mr-sm-2">Link da notícia: </label>
+                <br>
+                <input type="email" class="form-control" name="email" id="email" value="{{noticia?.linkDaNoticia}}">
+            </div>
+          <div class="col-auto my-1">
+            <button type="button" class="btn btn-secondary">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </form>
+        
+    <button type="button" class="btn btn-primary" (click)="closeModal(1)">Close self</button>
+    <button type="button" class="btn btn-primary" (click)="closeModal()">Close all modal</button>
+  </div>
+
+ 
+<!-- <ng-template #templateNested>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Second modal</h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef2?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is nested modal.<br />
+    <button *ngIf="modalRef" type="button" class="btn btn-danger" (click)="closeFirstModal()">Close first modal</button>
+    <button type="button" class="btn btn-danger" (click)="closeModal(2)">Close self</button>
+    <button type="button" class="btn btn-danger" (click)="closeModal()">Close all modal</button>
+  </div>
+</ng-template> -->
