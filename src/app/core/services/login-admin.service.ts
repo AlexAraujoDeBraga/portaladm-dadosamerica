@@ -14,8 +14,11 @@ export class LoginAdminService {
   constructor(private http: HttpClient) { }
 
   loginUser(user: User):Observable<User>  {
-    this.usuario = user;
     return this.http.post<User>(`${this.baseUrl}`, user);
+  }
+
+  setUser(usuarioRecebido: User) {
+    this.usuario = usuarioRecebido;
   }
 
   getUser() {

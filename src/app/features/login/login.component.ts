@@ -34,6 +34,7 @@ export class LoginComponent implements OnInit {
       } else {
         alert("Login Sucesso");
         this.user = data;
+        this.loginService.setUser(this.user);
         this.router.navigateByUrl('/admin-home-page');
       }
 

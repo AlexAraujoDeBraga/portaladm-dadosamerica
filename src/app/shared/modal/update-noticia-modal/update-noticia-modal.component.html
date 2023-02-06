@@ -1,9 +1,9 @@
 
   <div class="modal-header">
       <h4 class="modal-title pull-left"></h4>
-      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="closeModal(1)">
           <span aria-hidden="true" class="visually-hidden">&times;</span>
-        </button>
+      </button>
   </div>
   <div class="modal-body">
     <form>
@@ -52,28 +52,26 @@
                 <input type="email" class="form-control" name="email" id="email" value="{{noticia?.linkDaNoticia}}">
             </div>
           <div class="col-auto my-1">
-            <button type="button" class="btn btn-secondary">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="button" class="btn btn-secondary" (click)="closeModal(1)">Cancelar</button>
+            <button type="submit" class="btn btn-primary" (click)="openModal2(templateNested)">Salvar</button>
           </div>
         </div>
       </form>
-        
-    <button type="button" class="btn btn-primary" (click)="closeModal(1)">Close self</button>
-    <button type="button" class="btn btn-primary" (click)="closeModal()">Close all modal</button>
   </div>
 
  
-<!-- <ng-template #templateNested>
+<ng-template #templateNested>
   <div class="modal-header">
-    <h4 class="modal-title pull-left">Second modal</h4>
+    <h4 class="modal-title pull-left"></h4>
     <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef2?.hide()">
       <span aria-hidden="true" class="visually-hidden">&times;</span>
     </button>
   </div>
   <div class="modal-body">
-    This is nested modal.<br />
-    <button *ngIf="modalRef" type="button" class="btn btn-danger" (click)="closeFirstModal()">Close first modal</button>
-    <button type="button" class="btn btn-danger" (click)="closeModal(2)">Close self</button>
-    <button type="button" class="btn btn-danger" (click)="closeModal()">Close all modal</button>
+    <label class="mr-sm-2">Tem certeza que deseja fazer as alterações?</label>
+    <br />
+    <br />
+    <button type="button" class="btn btn-secondary" (click)="closeModal(2)">Cancelar</button>
+    <button type="button" class="btn btn-primary">Confirmar</button>
   </div>
-</ng-template> -->
+</ng-template>
