@@ -16,7 +16,8 @@ export class LoginComponent implements OnInit {
 
   user: User = new User();
   email = new FormControl('', [Validators.required, Validators.email]);
-  hide = true;
+  hide: boolean = false;
+  loginMessage:  boolean = false;
 
   constructor(private loginService: LoginAdminService, private router: Router) { }
 
@@ -30,15 +31,21 @@ export class LoginComponent implements OnInit {
     this.loginService.loginUser(this.user).subscribe((data: User) => {
       
       if (data == null) {
-        alert("You haven´t permission for access");
+        this.hide = true;
       } else {
-        alert("Login Sucesso");
-        this.user = data;
-        this.loginService.setUser(this.user);
-        this.router.navigateByUrl('/admin-home-page');
+        this.hide = false;
+        this.loginMessage = true;
+
+        setTimeout(() => {
+          this.loginMessage = false;
+          this.user = data;
+          this.loginService.setUser(this.user);
+          this.router.navigateByUrl('/admin-home-page');
+        }, 1000)
+
       }
 
-    }, error => alert("You haven´t permission for access"));
+    }, error => this.hide = true);
   }
 
 }

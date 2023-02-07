@@ -46,4 +46,16 @@
       </div>
     </form>
   </div>
+
+  <div class="toast show" *ngIf="hide">
+    <div class="toast-header">
+      <strong class="me-auto">Email ou senha incorretos</strong>
+      <button type="button" class="btn-close" data-bs-dismiss="toast" (click)="hide = false"></button>
+    </div>
+  </div>
+
+  <button class="btn btn-success botao-spinner" type="button" *ngIf="loginMessage">
+    <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+    Entrando...
+  </button>
 </div>

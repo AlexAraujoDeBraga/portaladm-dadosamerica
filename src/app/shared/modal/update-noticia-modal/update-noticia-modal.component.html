@@ -53,14 +53,14 @@
             </div>
           <div class="col-auto my-1">
             <button type="button" class="btn btn-secondary" (click)="closeModal(1)">Cancelar</button>
-            <button type="submit" class="btn btn-primary" (click)="openModal2(templateNested)">Salvar</button>
+            <button type="submit" class="btn btn-primary" (click)="openModal2(templateTwo)">Salvar</button>
           </div>
         </div>
       </form>
   </div>
 
  
-<ng-template #templateNested>
+<ng-template #templateTwo>
   <div class="modal-header">
     <h4 class="modal-title pull-left"></h4>
     <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef2?.hide()">
@@ -72,6 +72,21 @@
     <br />
     <br />
     <button type="button" class="btn btn-secondary" (click)="closeModal(2)">Cancelar</button>
-    <button type="button" class="btn btn-primary">Confirmar</button>
+    <button type="button" class="btn btn-primary" (click)="openModal3(templateThree)">Confirmar</button>
+  </div>
+</ng-template>
+
+<ng-template #templateThree>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left"></h4>
+    <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef3?.hide()">
+      <span aria-hidden="true" class="visually-hidden">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <label class="mr-sm-2">Alterado com sucesso!</label>
+    <br />
+    <br />
+    <button type="button" class="btn btn-primary" (click)="closeModals()">Ok</button>
   </div>
 </ng-template>

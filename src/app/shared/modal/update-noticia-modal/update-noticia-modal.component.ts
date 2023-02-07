@@ -16,17 +16,27 @@ export class UpdateNoticiaModalComponent implements OnInit {
   
   modalRef?: BsModalRef | null;
   modalRef2?: BsModalRef;
+  modalRef3?: BsModalRef;
   constructor(private modalService: BsModalService) {}
   
   ngOnInit(): void {
     this.inputResumo.nativeElement.value = "oi";
   }
+
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, { id: 1, class: 'modal-lg' });
   }
+
   openModal2(template: TemplateRef<any>) {
     this.modalRef2 = this.modalService.show(template, {id: 2, class: 'second' });
   }
+
+  openModal3(template: TemplateRef<any>) {
+    this.modalRef3 = this.modalService.show(template, {id: 3, class: 'third' });
+    this.modalService.hide(1);
+    this.modalService.hide(2);
+  }
+
   closeFirstModal() {
     if (!this.modalRef) {
       return;
@@ -35,8 +45,13 @@ export class UpdateNoticiaModalComponent implements OnInit {
     this.modalRef.hide();
     this.modalRef = null;
   }
+
   closeModal(modalId?: number){
     this.modalService.hide(modalId);
+  }
+
+  closeModals(){
+    this.modalService.hide(3);
   }
 
   
