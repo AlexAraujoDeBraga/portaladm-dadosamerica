@@ -30,7 +30,17 @@
                     {{noticia?.texto}}
                 </textarea>
             </div>
-            data
+            <div class="row">
+              <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+                <label for="">Data: </label>
+                <input type="text"
+                       class="form-control"
+                       bsDatepicker
+                       [bsValue]="bsValue"
+                       #dateValue
+                       [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD/MM/YYYY', containerClass: 'theme-blue' }">
+              </div>
+            </div>
             <div class="col-auto my-1">
                 <label class="mr-sm-2">Fonte: </label>
                 <br>
@@ -39,11 +49,9 @@
             <div class="col-auto my-1">
                 <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria: </label>
                 <br>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" (change)="getValue($event)">
                     <option selected>Selecione...</option>
-                    <option value="1">One</option>
-                    <option value="2">Two</option>
-                    <option value="3">Three</option>
+                    <option value="{{item.value}}" *ngFor="let item of categorias">{{item.value}}</option>
                 </select>
             </div>
             <div class="col-auto my-1">

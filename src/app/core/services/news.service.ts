@@ -16,4 +16,8 @@ export class NewsService {
     return this.http.get<INews[]>(`${this.baseUrl}all`);
   }
 
+  updateNews(news: INews):Observable<INews>  {
+    return this.http.put<INews>(`${this.baseUrl}update`, news);
+  }
+
 }

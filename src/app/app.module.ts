@@ -12,6 +12,7 @@ import { HomeAdminModule } from './features/dashboardpage/home/home.module';
 import { LoginAdminService } from './core/services/login-admin.service';
 import { AuthGuard } from './core/guards/auth-guard';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
@@ -23,8 +24,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     LoginModule,
     HttpClientModule,
     HomeAdminModule,
-    TooltipModule.forRoot(),
-    ModalModule.forRoot()
+    TooltipModule,
+    ModalModule.forRoot(),
+    BsDatepickerModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [LoginAdminService, AuthGuard],
   bootstrap: [AppComponent]
