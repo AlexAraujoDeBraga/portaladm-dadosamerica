@@ -22,9 +22,11 @@ export class ListarNoticiaComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.newsService.getNews().subscribe(data => {
-      this.news = data;
-    });
+    this.newsService.getNews().subscribe( 
+      next => this.news = next,
+      err => console.log(err),
+      () => console.log("complete")
+    );
   }
 
 }
