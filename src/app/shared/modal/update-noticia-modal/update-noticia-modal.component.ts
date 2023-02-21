@@ -1,5 +1,5 @@
 import { rendererTypeName } from '@angular/compiler';
-import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { TemplateRef } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Options } from 'ngx-bootstrap/positioning/models';
@@ -13,6 +13,7 @@ import { INews } from '../../model/news';
 })
 export class UpdateNoticiaModalComponent implements OnInit {
   @Input() noticia?: INews;
+  @Output() sendUpdateEvent = new EventEmitter<any>();
   @ViewChild('option') option?: Options;
   @ViewChild('dateValue') dateValue?: ElementRef;
   
@@ -94,7 +95,7 @@ export class UpdateNoticiaModalComponent implements OnInit {
     let mes = data.slice(3,5);
     let ano = data.slice(6,10);
 
-    return ano+"-"+mes+"-"+dia;
+    return ano+"-"+mes+"-"+dia+"T13:09:48.341+00:00";
   }
   
   updateNews() {
@@ -114,8 +115,7 @@ export class UpdateNoticiaModalComponent implements OnInit {
     console.log(this.noticiaObj);
 
     this.newsService.updateNews(this.noticiaObj).subscribe(() => {
-      // mandar um evento pra atualizar a página no home
-      console.log(this.noticiaObj);
+      this.sendUpdateEvent.emit();
     });
 
   }

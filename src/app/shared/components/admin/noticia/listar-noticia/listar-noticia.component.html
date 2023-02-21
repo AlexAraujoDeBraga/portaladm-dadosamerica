@@ -2,9 +2,9 @@
     <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Tabela Notícia</h6>
     </div> -->
-<div >
-    <h6 class="m-100 font-weight-bold text-primary">Tabela Notícias</h6>
-    <div class="card-body" *ngFor="let item of news">
+    <div *ngIf="showList">
+        <h6 class="m-100 font-weight-bold text-primary">Tabela Notícias</h6>
+        <div class="card-body" *ngFor="let item of news">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" cellspacing="0">
                 <thead>
@@ -49,7 +49,10 @@
             </table>
         </div>
         <ng-template #template>
-            <app-update-noticia-modal [noticia]="item"></app-update-noticia-modal>
+            <app-update-noticia-modal 
+            [noticia]="item"
+            (sendUpdateEvent)="callRequest()">
+            </app-update-noticia-modal>
         </ng-template>
     </div>
 </div>
