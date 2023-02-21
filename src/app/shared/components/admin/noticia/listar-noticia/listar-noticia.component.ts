@@ -12,20 +12,21 @@ import { Subscription } from 'rxjs';
 export class ListarNoticiaComponent implements OnInit, OnDestroy {
 
   singleModel?: number = 1; 
-  news: INews[] = [];
   modalRef?: BsModalRef | null;
   modalRef2?: BsModalRef;
-  request?: Subscription;
   showList: boolean = false;
+  request?: Subscription;
 
-  constructor(private newsService: NewsService, private modalService: BsModalService) { }
+  news: INews[] = [];
+
+  constructor(private newsService: NewsService ,private modalService: BsModalService) { }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, { id: 1, class: 'modal-lg' });
   }
 
   ngOnInit(): void {
-    this.callRequest();
+    this.showList = false;
   }
   
   ngOnDestroy(): void {
@@ -38,6 +39,16 @@ export class ListarNoticiaComponent implements OnInit, OnDestroy {
       this.news = data;
       this.showList = true;
     });
+  }
+
+  getNoticiasPorPagina(noticias: INews[] = []) {
+    this.showList = false;
+
+    setTimeout(() => {
+      this.news = noticias;
+      this.showList = true;
+    });
+
   }
 
 }

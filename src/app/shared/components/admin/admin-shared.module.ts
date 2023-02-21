@@ -13,6 +13,7 @@ import { UpdateNoticiaComponent } from './noticia/update-noticia/update-noticia.
 import { CreateNoticiaComponent } from './noticia/create-noticia/create-noticia.component';
 import { DeleteNoticiaComponent } from './noticia/delete-noticia/delete-noticia.component';
 import { ModalSharedModule } from '../../modal/modal-shared.module';
+import { PortalModule } from '../portal/portal.module';
 
 
 @NgModule({
@@ -40,6 +41,7 @@ import { ModalSharedModule } from '../../modal/modal-shared.module';
     FormsModule,
     BrowserAnimationsModule,
     ButtonsModule,
+    PortalModule,
     BsDropdownModule.forRoot()
   ]
 })

@@ -11,12 +11,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeAdminModule } from './features/dashboardpage/home/home.module';
 import { LoginAdminService } from './core/services/login-admin.service';
 import { AuthGuard } from './core/guards/auth-guard';
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { BsModalService, ModalModule } from 'ngx-bootstrap/modal';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -25,11 +25,11 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     HttpClientModule,
     HomeAdminModule,
     TooltipModule,
-    ModalModule.forRoot(),
+    ModalModule,
+    BrowserAnimationsModule,
     BsDatepickerModule.forRoot(),
-    BrowserAnimationsModule
   ],
-  providers: [LoginAdminService, AuthGuard],
+  providers: [LoginAdminService, AuthGuard, BsModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
