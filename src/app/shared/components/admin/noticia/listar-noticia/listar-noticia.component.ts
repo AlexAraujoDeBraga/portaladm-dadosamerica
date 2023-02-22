@@ -3,6 +3,7 @@ import { NewsService } from 'src/app/core/services/news.service';
 import { INews } from 'src/app/shared/model/news';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar-noticia',
@@ -19,7 +20,10 @@ export class ListarNoticiaComponent implements OnInit, AfterViewInit, OnDestroy 
 
   news: INews[] = [];
 
-  constructor(private newsService: NewsService ,private modalService: BsModalService) { }
+  constructor(
+    private newsService: NewsService,
+    private modalService: BsModalService,
+    private router: Router) { }
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template, { id: 1, class: 'modal-lg' });
@@ -58,6 +62,11 @@ export class ListarNoticiaComponent implements OnInit, AfterViewInit, OnDestroy 
       this.showList = true;
     });
 
+  }
+
+  openCreateNoticia() {
+    // this.showList = false;
+    // this.router.navigateByUrl('/create-noticia');
   }
 
 }

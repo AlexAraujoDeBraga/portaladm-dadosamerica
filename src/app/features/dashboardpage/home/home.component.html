@@ -6,5 +6,6 @@
             <h3 *ngIf="!showNoticiaOption">Bem vindo ao portal administrativo {{usuario?.name}}. <br> Selecione uma das opções do menu ao lado.</h3>
             <app-listar-noticia *ngIf="showNoticiaOption"></app-listar-noticia>
         </div>
+        <app-create-noticia></app-create-noticia>
     </div>
 </div>

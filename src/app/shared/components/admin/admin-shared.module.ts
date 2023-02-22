@@ -10,10 +10,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { ListarNoticiaComponent } from './noticia/listar-noticia/listar-noticia.component';
 import { UpdateNoticiaComponent } from './noticia/update-noticia/update-noticia.component';
-import { CreateNoticiaComponent } from './noticia/create-noticia/create-noticia.component';
 import { DeleteNoticiaComponent } from './noticia/delete-noticia/delete-noticia.component';
 import { ModalSharedModule } from '../../modal/modal-shared.module';
 import { PortalModule } from '../portal/portal.module';
+import { CreateNoticiaComponent } from './noticia/create-noticia/create-noticia.component';
 
 
 @NgModule({
@@ -22,16 +22,16 @@ import { PortalModule } from '../portal/portal.module';
     SidebarMenuComponent,
     ListarNoticiaComponent,
     UpdateNoticiaComponent,
-    CreateNoticiaComponent,
-    DeleteNoticiaComponent
+    DeleteNoticiaComponent,
+    CreateNoticiaComponent
   ],
   exports: [
     AdminHeaderComponent,
     SidebarMenuComponent,
     ListarNoticiaComponent,
     UpdateNoticiaComponent,
-    CreateNoticiaComponent,
-    DeleteNoticiaComponent
+    DeleteNoticiaComponent,
+    CreateNoticiaComponent
   ],
   imports: [
     BrowserModule,
