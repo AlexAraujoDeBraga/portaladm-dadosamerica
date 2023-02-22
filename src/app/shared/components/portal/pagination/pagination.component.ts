@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { NewsService } from 'src/app/core/services/news.service';
 import { INews } from 'src/app/shared/model/news';
@@ -8,11 +8,11 @@ import { INews } from 'src/app/shared/model/news';
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.sass']
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnInit, AfterViewInit {
   @Output() sendNoticiasPorPagina = new EventEmitter<any>();
 
   noticiasPorPagina: INews[] = [];
-  itemsPorPagina: number = 2;
+  itemsPorPagina: number = 3;
   iterator: number = 0;
   public selectedPage = 1;
 
@@ -23,8 +23,12 @@ export class PaginationComponent implements OnInit {
 
   ngOnInit(): void {
     this.request = this.newsService.getNews().subscribe((data) => {
-        this.news = data;
-      });
+      this.news = data;
+    });
+  }
+
+  ngAfterViewInit(): void {
+
   }
 
   changePageSize(event: Event) {

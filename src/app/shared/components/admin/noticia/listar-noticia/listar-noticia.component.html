@@ -3,7 +3,17 @@
         <h6 class="m-0 font-weight-bold text-primary">Tabela Notícia</h6>
     </div> -->
     <div *ngIf="showList">
-        <h6 class="m-100 font-weight-bold text-primary">Tabela Notícias</h6>
+        <div id="tableNameAndButton">
+          <h6 class="m-100 font-weight-bold text-primary">Tabela Notícias</h6>
+          <button type="button" class="btn btn-success m-1 botaoCadastrar"
+          btnCheckbox
+          btnCheckboxTrue="1" btnCheckboxFalse="0">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+          </svg>
+          Cadastrar
+          </button>
+        </div>
         <div class="card-body" *ngFor="let item of news">
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" cellspacing="0">
@@ -33,7 +43,7 @@
                                     </svg>
                                     Update
                             </button>
-                            
+
                             <button type="button" class="btn btn-danger"
                                     [(ngModel)]="singleModel" btnCheckbox
                                     btnCheckboxTrue="1" btnCheckboxFalse="0">
@@ -49,9 +59,9 @@
             </table>
         </div>
         <ng-template #template>
-            <app-update-noticia-modal 
+            <app-update-noticia-modal
             [noticia]="item"
-            (sendUpdateEvent)="callRequest()">
+            (sendUpdateEvent)="callRequestAfterUpdate()">
             </app-update-noticia-modal>
         </ng-template>
     </div>

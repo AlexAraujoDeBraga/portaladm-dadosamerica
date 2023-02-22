@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { NewsService } from 'src/app/core/services/news.service';
 import { INews } from 'src/app/shared/model/news';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
@@ -9,9 +9,9 @@ import { Subscription } from 'rxjs';
   templateUrl: './listar-noticia.component.html',
   styleUrls: ['./listar-noticia.component.sass']
 })
-export class ListarNoticiaComponent implements OnInit, OnDestroy {
+export class ListarNoticiaComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  singleModel?: number = 1; 
+  singleModel?: number = 1;
   modalRef?: BsModalRef | null;
   modalRef2?: BsModalRef;
   showList: boolean = false;
@@ -28,12 +28,21 @@ export class ListarNoticiaComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.showList = false;
   }
-  
+
+  ngAfterViewInit(): void {
+    this.request = this.newsService.getNews().subscribe((data) => {
+      for (let x = 0; x < 3; x++) {
+          this.news.push(data[x]);
+      }
+      this.showList = true;
+    });
+  }
+
   ngOnDestroy(): void {
     this.request?.unsubscribe;
   }
-  
-  callRequest() {
+
+  callRequestAfterUpdate() {
     this.showList = false;
     this.request = this.newsService.getNews().subscribe((data) => {
       this.news = data;
