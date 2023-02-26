@@ -11,23 +11,23 @@
             <div class="col-auto my-1">
               <label class="mr-sm-2">Título: </label>
               <br>
-              <input type="email" class="form-control" name="email" id="email" value="{{noticia?.titulo}}">
+              <input type="email" class="form-control" name="titulo" id="titulo" [(ngModel)]="titulo">
             </div>
             <div class="col-auto my-1">
                 <label class="mr-sm-2">URL da imagem: </label>
                 <br>
-                <input type="email" class="form-control" name="email" id="email" value="{{noticia?.urlImg}}">
+                <input type="email" class="form-control" name="url" id="url" [(ngModel)]="urlImg">
             </div>
             <div class="col-auto my-1">
               <label for="exampleFormControlTextarea1">Resumo: </label>
-              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3">
-                  {{noticia?.resumo}}
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" #resumeValue>
+                  {{resumo}}
               </textarea>
             </div>
             <div class="col-auto my-1">
-                <label for="exampleFormControlTextarea1">Texto: </label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">
-                    {{noticia?.texto}}
+                <label for="exampleFormControlTextarea2">Texto: </label>
+                <textarea class="form-control" id="exampleFormControlTextarea2" rows="5" #textoValue>
+                    {{texto}}
                 </textarea>
             </div>
             <div class="row">
@@ -44,7 +44,7 @@
             <div class="col-auto my-1">
                 <label class="mr-sm-2">Fonte: </label>
                 <br>
-                <input type="email" class="form-control" name="email" id="email" value="{{noticia?.fonte}}">
+                <input type="email" class="form-control" name="fonte" id="fonte" [(ngModel)]="fonte">
             </div>
             <div class="col-auto my-1">
                 <label class="mr-sm-2" for="inlineFormCustomSelect">Categoria: </label>
@@ -57,7 +57,7 @@
             <div class="col-auto my-1">
                 <label class="mr-sm-2">Link da notícia: </label>
                 <br>
-                <input type="email" class="form-control" name="email" id="email" value="{{noticia?.linkDaNoticia}}">
+                <input type="email" class="form-control" name="email" id="email" [(ngModel)]="linkNoticia">
             </div>
           <div class="col-auto my-1">
             <button type="button" class="btn btn-secondary" (click)="closeModal(1)">Cancelar</button>
@@ -67,7 +67,7 @@
       </form>
   </div>
 
- 
+
 <ng-template #templateTwo>
   <div class="modal-header">
     <h4 class="modal-title pull-left"></h4>

@@ -16,7 +16,9 @@ export class UpdateNoticiaModalComponent implements OnInit {
   @Output() sendUpdateEvent = new EventEmitter<any>();
   @ViewChild('option') option?: Options;
   @ViewChild('dateValue') dateValue?: ElementRef;
-  
+  @ViewChild('resumeValue') resumeValue?: ElementRef;
+  @ViewChild('textoValue') textoValue?: ElementRef;
+
   modalRef?: BsModalRef | null;
   modalRef2?: BsModalRef;
   modalRef3?: BsModalRef;
@@ -28,21 +30,35 @@ export class UpdateNoticiaModalComponent implements OnInit {
 
   bsValue = new Date();
 
+  linkNoticia: string = "";
+  fonte: string = "";
+  texto: string = "";
+  resumo: string = "";
+  urlImg: string = "";
+  titulo: string = "";
+
   constructor(private modalService: BsModalService, private newsService: NewsService) {}
-  
+
   ngOnInit(): void {
     this.categorias = [
       {value: 'América Latina'},
-      {value: 'Artes'}, 
+      {value: 'Artes'},
       {value: 'Brasil'},
-      {value: 'Ciência'}, 
-      {value: 'Economia'}, 
+      {value: 'Ciência'},
+      {value: 'Economia'},
       {value: 'Natureza'},
-      {value: 'Mundo'}, 
-      {value: 'Política'}, 
-      {value: 'Tecnologia'}, 
+      {value: 'Mundo'},
+      {value: 'Política'},
+      {value: 'Tecnologia'},
       {value: 'Violência'}
     ];
+
+    this.titulo = String(this.noticia?.titulo),
+    this.urlImg = String(this.noticia?.urlImg),
+    this.resumo = String(this.noticia?.resumo),
+    this.texto = String(this.noticia?.texto),
+    this.fonte = String(this.noticia?.fonte),
+    this.linkNoticia = String(this.noticia?.linkDaNoticia);
 
     this.noticiaUpdate = new NewsClass();
   }
@@ -59,7 +75,7 @@ export class UpdateNoticiaModalComponent implements OnInit {
     this.modalRef3 = this.modalService.show(template, {id: 3, class: 'third' });
     this.modalService.hide(1);
     this.modalService.hide(2);
-    
+
     this.updateNews();
 
   }
@@ -68,7 +84,7 @@ export class UpdateNoticiaModalComponent implements OnInit {
     if (!this.modalRef) {
       return;
     }
- 
+
     this.modalRef.hide();
     this.modalRef = null;
   }
@@ -89,7 +105,7 @@ export class UpdateNoticiaModalComponent implements OnInit {
     }
     console.log(this.categoriaSelecionada);
   }
-  
+
   formatarData (data: string): string {
     let dia = data.slice(0,2);
     let mes = data.slice(3,5);
@@ -97,19 +113,19 @@ export class UpdateNoticiaModalComponent implements OnInit {
 
     return ano+"-"+mes+"-"+dia+"T13:09:48.341+00:00";
   }
-  
+
   updateNews() {
 
     this.noticiaObj = {
       id: Number(this.noticia?.id),
-      titulo: String(this.noticia?.titulo),
-      urlImg: String(this.noticia?.urlImg),
-      resumo: String(this.noticia?.resumo),
-      texto: String(this.noticia?.texto),
+      titulo: this.titulo,
+      urlImg: this.urlImg,
+      resumo: this.resumeValue?.nativeElement.value,
+      texto: this.textoValue?.nativeElement.value,
       dataNoticia: this.formatarData(this.dateValue?.nativeElement.value),
-      fonte: String(this.noticia?.fonte),
+      fonte: this.fonte,
       categoria: this.categoriaSelecionada,
-      linkDaNoticia: String(this.noticia?.linkDaNoticia),
+      linkDaNoticia: this.linkNoticia,
     }
 
     console.log(this.noticiaObj);

@@ -48,6 +48,7 @@ export class ListarNoticiaComponent implements OnInit, AfterViewInit, OnDestroy 
 
   callRequestAfterUpdate() {
     this.showList = false;
+    this.news = [];
     this.request = this.newsService.getNews().subscribe((data) => {
       this.news = data;
       this.showList = true;
